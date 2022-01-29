@@ -1,0 +1,90 @@
+<ng-container *ngIf="products.length !=0" >
+  <div class="row">
+    <div class="col my-4">
+      <table class="table">
+        <thead class="table-dark">
+        <tr class="text-center">
+          <th>Sr.No</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of products, let i= index" >
+          <td>{{i+1}}</td>
+          <td><img src="{{p.image}}" style="height:80px" alt="{{p.title}}"></td>
+          <td>{{p.title}}</td>
+          <td>
+            <p>{{p.price}}</p>
+          </td>
+          <td>
+            <form>
+              <div class="value-button" id="decrease" >
+                <i class="fa fa-minus"></i>
+              </div>
+              <input type="number" id="number"  readonly value="{{p.quantity}}" />
+              <div class="value-button" id="increase" >
+                <i class="fa fa-plus"></i>
+              </div>
+            </form>
+          </td>
+          <td>
+            <p>{{p.total}}</p>
+          </td>
+          <td class="d-flex align-items-center justify-content-around" >
+            <!-- <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash fa-2x"></i></span> -->
+            <button (click)="removeProduct(p)" class="btn btn-danger"><i class="fa fa-trash "></i></button>
+          </td>
+        </tr>
+        <tr class="border-0">
+          <td style="border: none;"></td>
+          <td></td>
+          <td></td>
+          <td>TOTAL:</td>
+          <td>{{allProducts | currency:'INR'}}</td>
+
+        </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+
+    <div class="col-md-12 text-center d-flex mb-5">
+      <!-- <div class="d-flex w-100 justify-content-center text-center flex-sm-column flex-md-row">
+       <a href="" class=" btn btn-danger btn-sm ">Empty Cart</a>
+        <a routerLink="/checkout" class=" btn btn-danger btn-sm order-1">Checkout</a>
+        
+        <a routerLink="/home" class="btn btn-success btn-sm order-0">Continue Shopping</a>
+      </div> -->
+
+    </div>
+    <div class="col-md-12 text-center d-flex mb-5">
+      <div class="d-flex w-100 justify-content-between text-center flex-sm-column flex-md-row">
+      
+    <button (click)="removeAllProduct()" class="btn btn-secondary"> Empty Cart</button>
+      <button routerLink="/home" class="btn btn-secondary ml-3 "> Shop More</button>
+  <button routerLink="/checkout" class="btn btn-secondary ml-3 "> Check Out</button>
+  </div></div>
+
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0" >
+  <div class="container">
+  <div  class="text-center my-5">
+    <i class="fa fa-shopping-cart fa-5x"></i>
+    <h4>Your Cart Is Empty</h4>
+    <button class="btn btn-primary btn-lg mt-3" routerLink="/">Continue Shopping</button>
+  </div>
+  </div>
+</ng-container>
+
+  
+<!-- 
+</div> -->

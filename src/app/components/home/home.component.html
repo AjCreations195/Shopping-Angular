@@ -1,0 +1,234 @@
+<!-- <div class="grid-container">
+  <h1 class="mat-h1">Todays Deals</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card card-image" [style.background-image]= "getImage(card.imageName)">
+        <mat-card-header class="mat-app-background card-title">
+          <mat-card-title>
+            {{card.title}}
+           
+          </mat-card-title>
+        </mat-card-header>
+       
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div> -->
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="../../../assets/img/shop01.png" alt="">
+          </div>
+          <div class="shop-body">
+            <h3>Laptop<br>Collection</h3>
+            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="../../../assets/img/shop03.png" alt="">
+          </div>
+          <div class="shop-body">
+            <h3>Accessories<br>Collection</h3>
+            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="./../../../assets/img/shop02.png" alt="">
+          </div>
+          <div class="shop-body">
+            <h3>Cameras<br>Collection</h3>
+            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title">New Products</h3>
+        </div>
+      </div>
+      <!-- /section title -->
+
+      <!-- Products tab & slick -->
+      <div id="productCard" class="col-md-12">
+        <div class="row">
+          <div class="col-12 col-md-4 col-sm-12 col-xs-12" *ngFor="let p of products">
+            <div class="card px-4 py-2">
+                <div class="div1 row py-2 px-2">
+                    <div class="col-7 mt-2" >
+                        <p class="font-weight-bold mb-5" id="heading">{{p.title.substr(0,25) | titlecase}}</p>
+                        <p class="mt-3"> July 1 - July 28 </p>
+                    </div>
+                    <div class="col-5 d-flex align-items-center">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center w-100" id="circl"> <img  src="{{p.image}}" alt="{{p.title}}" (click)="selectProduct(p.id)" height="130px" width="70px" alt=""> </div>
+                    </div>
+                </div>
+                <div class="py-2">
+                    <p id="desc"> {{p.description.substr(0,40)}} </p>
+                    <div class="" >
+                        <h6  style="text-align: right;"> 
+                          <p class="lead">{{p.price |currency:'INR'}}</p>
+                         </h6>
+                          <button (click)="AddToCart(p)"  class="btn d-flex ml-auto px-3 font-weight-bold darkWhite" [class.disabled]="p.quantity<1"
+                        [class.btn-outline-danger]="p.quantity<1"  >
+                        {{p.quantity <1 ? "NO STOCK" : "Add To Cart" }}  </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- new product -->
+  <!-- <div class="col-md-4 col-sm-6" *ngFor="let p of products">
+            <div class="card my-2">
+              <img [src]="getImage(p.image)" alt="{{p.name}}" (click)="selectProduct(p.id)" width="200px"
+                class="card-img-top" style="cursor:pointer;">
+              <div class="card-header">
+                <div class="card-title">
+                  <p>{{p.name | titlecase}}</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <h6 class="description">{{p.description.substr(0,25)}}</h6>
+                <p class="lead">{{p.price |currency:'INR'}}</p>
+              </div>
+              <div class="row d-flex justify-content-center border-primary my-3">
+                <div class="col-md-6 ">
+                  <button class="btn btn-home btn-outline-primary btn-sm btn-block" [class.disabled]="p.quantity<1"
+                    [class.btn-outline-danger]="p.quantity<1">
+                    {{p.quantity <1 ? "NO STOCK" : "Add To Cart" }} </button>
+                </div> -->
+              <!-- </div>
+
+            </div>
+
+          </div> -->
+<!-- /container -->
+
+
+<!-- /SECTION -->
+
+<!-- HOT DEAL SECTION -->
+<div id="hot-deal" class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hot-deal">
+          <ul class="hot-deal-countdown">
+            <li>
+              <div>
+                <h3>02</h3>
+                <span>Days</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>10</h3>
+                <span>Hours</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>34</h3>
+                <span>Mins</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>60</h3>
+                <span>Secs</span>
+              </div>
+            </li>
+          </ul>
+          <h2 class="text-uppercase">hot deal this week</h2>
+          <p>New Collection Up to 50% OFF</p>
+          <a class="primary-btn cta-btn" href="#">Shop now</a>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /HOT DEAL SECTION -->
+
+
+<!-- NEWSLETTER -->
+<div id="newsletter" class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="newsletter">
+          <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+          <form>
+            <input class="input" type="email" placeholder="Enter Your Email">
+            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+          </form>
+          <ul class="newsletter-follow">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-pinterest"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /NEWSLETTER -->

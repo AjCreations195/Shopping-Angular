@@ -1,0 +1,11 @@
+<div>
+    {{data.type | titlecase}}z
+</div>
+<div class="content-style">
+    {{data.message}}
+</div>
+<div style="text-align: center;">
+    <button mat-flat-button (click)="snackBarbRef.dismiss()" >
+        {{data.buttonText}}
+    </button>
+</div>
