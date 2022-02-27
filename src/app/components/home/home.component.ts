@@ -41,12 +41,17 @@ export class HomeComponent {
           // })
         // }
         selectProduct(id:number){
-           this.router.navigate(['/product',id]).then()
-             this.ProductService.getSingleProduct(id).subscribe(response=>{
-               console.log(response);
-               
-             })
+          this.ProductService.getSingleProduct(id).subscribe(response=>{
+                   console.log(response);
+                 })
         }
+        // selectProduct(id:number){
+        //    this.router.navigate(['/product',id]).then()
+        //      this.ProductService.getSingleProduct(id).subscribe(response=>{
+        //        console.log(response);
+               
+        //      })
+        // }
         getImage(imageName:string):string{
               return ( 'http://localhost:3000/images/' + imageName + '.png'  )
             }

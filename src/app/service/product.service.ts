@@ -24,7 +24,7 @@ export class ProductService {
   //     }
   //   })
   // }
-   getAllProducts(numberOfResults:number=6){
+   getAllProducts(numberOfResults:number=9){
     return this.http.get('https://fakestoreapi.com/products',{
           params:{
             limit:numberOfResults.toString()
@@ -36,11 +36,19 @@ export class ProductService {
 
   // get single product
   getSingleProduct(id:number):Observable<ProductModelServer>{
-    return this.http.get<ProductModelServer>(this.SERVER_URL + '/products/' + id)
+    return this.http.get<ProductModelServer>('https://fakestoreapi.com/products/' + id)
   } 
 
-  // get product from one category
-  getProductsFromCategory(catName:string):Observable<ProductModelServer[]>{
-    return this.http.get<ProductModelServer[]>(this.SERVER_URL + '/products/category/' + catName)
+  getAllCategiesList(){
+     return this.http.get('https://fakestoreapi.com/products/categories')
+  }
+
+  // // get product from one category
+  // getProductsFromCategory(catName:string):Observable<ProductModelServer[]>{
+  //   return this.http.get<ProductModelServer[]>(this.SERVER_URL + '/products/category/' + catName)
+  // }
+
+  getProductsfromCategory(catName:string){
+    return this.http.get('https://fakestoreapi.com/products/category/'+catName)
   }
 }

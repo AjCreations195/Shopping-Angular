@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,10 @@ export class HeaderComponent implements OnInit {
   allProducts: any = 0
   isDisplay:boolean=true;
   totalItemNumber:number=0;
-  constructor(private cartService:CartService) { }
+  categories:any=[];
+
+  constructor(private cartService:CartService,
+               private productService:ProductService) { }
 
   ngOnInit(): void {
     
@@ -21,7 +25,25 @@ export class HeaderComponent implements OnInit {
       this.products = res;
       this.allProducts = this.cartService.getTotalAmount();
     })
+    this.getAllCategiesList()
+    this.getProductsfromCategory('electronics')
   }
+
+  getAllCategiesList(){
+    this.productService.getAllCategiesList().subscribe(res=>{
+      console.log(res);
+      this.categories= res;
+     
+    })
+  }
+  getProductsfromCategory(catName:string){
+    this.productService.getProductsfromCategory(catName).subscribe(res=>{
+      console.log(res);
+     
+      
+    })
+  }
+
   removeProduct(item:any){
     this.cartService.removeCartData(item);
   }
